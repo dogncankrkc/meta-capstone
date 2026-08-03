@@ -8,10 +8,16 @@
 .header {
   max-width: 1440px;
   margin: 0 auto;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 50px 100px;
+  width: 100%;
+}
+
+.header-logo {
+  flex-shrink: 0;
 }
 
 .header img {
@@ -19,33 +25,130 @@
   height: auto;
 }
 
-.header nav {
+.desktop-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
 }
 
-.header nav ul {
+.desktop-nav ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-}
-
-.header nav ul li {
+  gap: 24px;
   list-style: none;
 }
 
-.header nav ul li a {
-  margin: 0 10px;
+.desktop-nav ul li a {
   text-decoration: none;
   color: #333;
   font-weight: 600;
 }
 
-.header nav ul li a:hover {
+.desktop-nav ul li a:hover {
   color: black;
+}
+
+.hamburger-menu {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 12px;
+  background: #f4ce14;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  z-index: 21;
+}
+
+.hamburger-icon {
+  color: #1f1f1f;
+  font-size: 22px;
+}
+
+.mobile-nav-overlay {
+  display: none;
+}
+
+.mobile-nav-panel {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 20px;
+  }
+
+  .header img {
+    width: 150px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: inline-flex;
+  }
+
+  .mobile-nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 18;
+  }
+
+  .mobile-nav-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav-panel {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(82vw, 320px);
+    height: 100vh;
+    padding: 96px 24px 24px;
+    background: #ffffff;
+    box-shadow: -18px 0 36px rgba(0, 0, 0, 0.14);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 20;
+  }
+
+  .mobile-nav-panel.open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-panel nav {
+    height: 100%;
+  }
+
+  .mobile-nav-panel ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .mobile-nav-panel a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 0;
+  }
 }
 
 .hero {
@@ -57,6 +160,17 @@
   color: white;
   text-align: start;
   gap: 100px;
+  padding: 20px 100px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    height: auto;
+    padding: 20px;
+  }
 }
 
 .hero-text {
@@ -68,9 +182,21 @@
   gap: 20px;
 }
 
+@media (max-width: 768px) {
+  .hero-text {
+    align-items: center;
+  }
+}
+
 .hero-text h1 {
   font-size: 48px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 36px;
+  }
 }
 
 .hero-text h2 {
@@ -78,42 +204,66 @@
   font-weight: bold;
 }
 
+@media (max-width: 768px) {
+  .hero-text h2 {
+    font-size: 28px;
+  }
+}
 .hero-text p {
   font-size: 24px;
   line-height: 1.5;
 }
+@media (max-width: 768px) {
+  .hero-text p {
+    font-size: 18px;
+  }
+}
 
 .hero-image {
-    width: 300px; 
-    height: 300px;
-    overflow: hidden; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 16px;
-    margin-top: 200px;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  margin-top: 200px;
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+   display: none;
+  }
 }
 
 .hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
   padding: 20px;
   width: 100%;
   background-color: #e5e5e5;
 }
 
 .footer-content {
-    width: 1280px;
-    display: flex;
+  width: 1280px;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 200px;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 .footer-nav {
@@ -155,5 +305,6 @@
 }
 
 .btn:hover {
-  background-color: #FFBB02;
+  background-color: #ffbb02;
 }
+
