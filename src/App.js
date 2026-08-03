@@ -1,10 +1,10 @@
 import './App.css';
 import Header from './components/layout/Header';
 import Hero from './components/layout/Hero';
-// import Specials from './components/layout/Specials';
-// import Testimonials from './components/layout/Testimonials';
-// import About from './components/layout/About';
+import Specials from './components/ui/Specials';
+import Testimonials from './components/ui/Testimonials';
 import Footer from './components/layout/Footer';
+import About from './components/ui/About';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Hero />
       </section>
 
-      {/* <section className="specials">
+      <section className="specials-section">
         <Specials />
       </section>
 
@@ -26,16 +26,8 @@ function App() {
         <Testimonials />
       </section>
 
-      <section className="about">
+      <section className="about-section">
         <About />
-      </section> */}
-
-      <section>
-        <div style={{ height: "200px" }}></div>
-      </section>
-
-      <section>
-        <div style={{ height: "200px" }}></div>
       </section>
 
     </main>

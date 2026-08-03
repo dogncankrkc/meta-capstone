@@ -232,7 +232,7 @@
 
 @media (max-width: 768px) {
   .hero-image {
-   display: none;
+    display: none;
   }
 }
 
@@ -308,3 +308,250 @@
   background-color: #ffbb02;
 }
 
+.btn-text {
+  color: black;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  background: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  width: 100%;
+  max-width: none;
+  text-align: start;
+  gap: 10px;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  font-size: 16px;
+  color: #666;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.card-header p {
+  color: #ee9972;
+}
+
+.card-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #666;
+}
+
+.specials-section {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  padding-bottom: 40px;
+}
+
+.specials-content {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 100px;
+}
+
+.specials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .specials-content {
+    padding: 0 20px;
+  }
+
+  .specials {
+    grid-template-columns: 1fr;
+  }
+}
+
+.specials-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .specials-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .specials-header h2 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+}
+
+.testimonials {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 80px 0 100px;
+  background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+}
+
+.testimonials-content {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 100px;
+}
+
+.testimonials-header {
+  margin-bottom: 28px;
+}
+
+.testimonials-header h2 {
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.rating-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.06);
+}
+
+.rating-stars {
+  display: flex;
+  gap: 6px;
+  color: #f4ce14;
+}
+
+.rating-star {
+  font-size: 18px;
+}
+
+.rating-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rating-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #e9e9e9;
+}
+
+.rating-avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.rating-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+
+.rating-comment {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 56px 0 72px;
+  }
+
+  .testimonials-content {
+    padding: 0 20px;
+  }
+
+  .testimonials-header {
+    text-align: center;
+  }
+
+  .testimonials-header h2 {
+    font-size: 28px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-section {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 80px 0 100px;
+  justify-content: center;
+}
+
+.about-content {
+  width: 100%;
+  display: flex;
+    flex-direction: row;
+  max-width: 1280px;
+  padding: 0 100px;
+}
