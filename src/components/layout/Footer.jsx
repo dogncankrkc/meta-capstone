@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="footer-nav-section">
             <ul>
               <li>
-                <a href="#hero">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
                 <a href="#hero">About</a>
@@ -26,7 +26,7 @@ export default function Footer() {
               </li>
               <li>
                 {" "}
-                <a href="#about">Order Online</a>{" "}
+                <a href="/booking">Order Online</a>{" "}
               </li>
               <li>
                 <a href="#about">Login</a>{" "}
