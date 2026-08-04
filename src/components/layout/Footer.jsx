@@ -1,67 +1,44 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AppLogo from "../../assets/images/Logo.svg";
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer-content">
         <div className="footer-logo">
           <img src={AppLogo} alt="Little Lemon Logo" />
         </div>
 
-        <nav className="footer-nav">
+        <nav className="footer-nav" aria-label="Footer navigation">
           <div className="footer-nav-section">
             <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="#hero">About</a>
-              </li>
-              <li>
-                <a href="#specials">Menu</a>
-              </li>
-              <li>
-                <a href="#testimonials">Reservations</a>
-              </li>
-              <li>
-                {" "}
-                <a href="/booking">Order Online</a>{" "}
-              </li>
-              <li>
-                <a href="#about">Login</a>{" "}
-              </li>
-            </ul>
-          </div>
-          <div className="footer-nav-section">
-            <ul>
-              <li>
-                <a href="#hero">Address</a>
-              </li>
-              <li>
-                <a href="#hero">Phone Number</a>
-              </li>
-              <li>
-                <a href="#specials">email</a>
-              </li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/">About</Link></li>
+              <li><Link to="/">Menu</Link></li>
+              <li><Link to="/reservations">Reservations</Link></li>
+              <li><Link to="/booking">Reserve a Table</Link></li>
+              <li><Link to="/">Login</Link></li>
             </ul>
           </div>
 
           <div className="footer-nav-section">
             <ul>
-              <li>
-                <a href="#hero">Facebook</a>
-              </li>
-              <li>
-                <a href="#hero">Instagram</a>
-              </li>
-              <li>
-                <a href="#specials">Twitter</a>
-              </li>
+              <li><span>Address</span></li>
+              <li><span>Phone Number</span></li>
+              <li><span>Email</span></li>
+            </ul>
+          </div>
+
+          <div className="footer-nav-section">
+            <ul>
+              <li><span>Facebook</span></li>
+              <li><span>Instagram</span></li>
+              <li><span>Twitter</span></li>
             </ul>
           </div>
         </nav>
       </div>
-    </div>
+    </footer>
   );
 }

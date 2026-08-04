@@ -20,7 +20,7 @@ export const formSlice = createSlice({
     },
     resetForm: (state) => {
       return { ...initialState };
-    }
+    },
   },
 });
 

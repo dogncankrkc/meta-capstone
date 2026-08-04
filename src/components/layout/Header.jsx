@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Link, useLocation } from "react-router-dom";
 import AppLogo from "../../assets/images/Logo.svg";
-import { useLocation } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const {pathname} = location;
+  const { pathname } = useLocation();
 
   const handleHamburgerClick = () => {
     setIsMenuOpen((currentOpen) => !currentOpen);
@@ -18,7 +17,7 @@ export default function Header() {
   };
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="header-logo">
         <img src={AppLogo} alt="Little Lemon Logo" />
       </div>
@@ -26,26 +25,28 @@ export default function Header() {
       <nav className="desktop-nav" aria-label="Primary navigation">
         <ul>
           <li>
-            <a href="/" className={pathname === "/" ? "active" : ""}>
+            <Link to="/" className={pathname === "/" ? "active" : ""}>
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/">About</a>
+            <Link to="/">About</Link>
           </li>
           <li>
-            <a href="/">Menu</a>
+            <Link to="/">Menu</Link>
           </li>
           <li>
-            <a href="/">Reservations</a>
+            <Link to="/reservations" className={pathname === "/reservations" ? "active" : ""}>
+              Reservations
+            </Link>
           </li>
           <li>
-            <a href="/booking" className={pathname === "/booking" ? "active" : ""}>
-              Order Online
-            </a>
+            <Link to="/booking" className={pathname === "/booking" ? "active" : ""}>
+              Reserve a Table
+            </Link>
           </li>
           <li>
-            <a href="/">Login</a>
+            <Link to="/">Login</Link>
           </li>
         </ul>
       </nav>
@@ -64,7 +65,10 @@ export default function Header() {
         />
       </button>
 
-      <div className={`mobile-nav-overlay ${isMenuOpen ? "open" : ""}`} onClick={handleNavigationClick} />
+      <div
+        className={`mobile-nav-overlay ${isMenuOpen ? "open" : ""}`}
+        onClick={handleNavigationClick}
+      />
 
       <aside
         id="mobile-navigation"
@@ -74,26 +78,26 @@ export default function Header() {
         <nav aria-label="Mobile navigation">
           <ul>
             <li>
-              <a href="#hero" onClick={handleNavigationClick}>Home</a>
+              <Link to="/" onClick={handleNavigationClick}>Home</Link>
             </li>
             <li>
-              <a href="#hero" onClick={handleNavigationClick}>About</a>
+              <Link to="/" onClick={handleNavigationClick}>About</Link>
             </li>
             <li>
-              <a href="#specials" onClick={handleNavigationClick}>Menu</a>
+              <Link to="/" onClick={handleNavigationClick}>Menu</Link>
             </li>
             <li>
-              <a href="#testimonials" onClick={handleNavigationClick}>Reservations</a>
+              <Link to="/reservations" onClick={handleNavigationClick}>Reservations</Link>
             </li>
             <li>
-              <a href="#about" onClick={handleNavigationClick}>Order Online</a>
+              <Link to="/booking" onClick={handleNavigationClick}>Reserve a Table</Link>
             </li>
             <li>
-              <a href="#about" onClick={handleNavigationClick}>Login</a>
+              <Link to="/" onClick={handleNavigationClick}>Login</Link>
             </li>
           </ul>
         </nav>
       </aside>
-    </div>
+    </header>
   );
 }

@@ -6,8 +6,8 @@ import QrCode from "../../assets/images/qr-code.png";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateForm, resetForm } from "../../features/form/formSlice.js";
+import { addReservation } from "../../features/reservations/reservationsSlice.js";
 import { useEffect } from "react";
-
 
 function validateBooking(values) {
   const errors = {};
@@ -56,7 +56,9 @@ function isStepComplete(values, step) {
   }
 
   if (step === 2) {
-    return Boolean(values.date) && Boolean(values.time) && Boolean(values.occasion);
+    return (
+      Boolean(values.date) && Boolean(values.time) && Boolean(values.occasion)
+    );
   }
 
   if (step === 3) {
@@ -78,6 +80,7 @@ export default function BookingForm({ availableTimes, dispatch }) {
     validate: validateBooking,
     onSubmit: (values) => {
       setIsSubmitted(true);
+      formDispatch(addReservation(formik.values));
       formDispatch(resetForm());
     },
   });
@@ -183,7 +186,10 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     value={formik.values.date}
                     onChange={(event) => {
                       formik.handleChange(event);
-                      dispatch({ type: "UPDATE_TIMES", date: event.target.value });
+                      dispatch({
+                        type: "UPDATE_TIMES",
+                        date: event.target.value,
+                      });
                     }}
                     onBlur={formik.handleBlur}
                     className={
@@ -210,7 +216,7 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     }
                     required
                   >
-
+                    <option value="">Select a time</option>
                     {availableTimes.map((time) => (
                       <option key={time} value={time}>
                         {time}
@@ -233,7 +239,9 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     className={
-                      formik.touched.occasion && formik.errors.occasion ? "error" : ""
+                      formik.touched.occasion && formik.errors.occasion
+                        ? "error"
+                        : ""
                     }
                   >
                     <option value="">Select an occasion</option>
@@ -242,7 +250,9 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     <option value="other">Other</option>
                   </select>
                   {formik.touched.occasion && formik.errors.occasion && (
-                    <span className="booking-error">{formik.errors.occasion}</span>
+                    <span className="booking-error">
+                      {formik.errors.occasion}
+                    </span>
                   )}
                 </div>
               </div>
