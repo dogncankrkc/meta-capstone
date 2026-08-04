@@ -74,3 +74,4 @@ export const testimonialsData = [
       "I love the variety of options on the menu at Little Lemon. There's something for everyone, and the quality of the food is exceptional.",
   },
 ];
+

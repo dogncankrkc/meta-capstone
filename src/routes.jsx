@@ -2,7 +2,7 @@ import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import MainLayout from './components/layout/MainLayout'
 import HomePage from './pages/Home'
-import BookingPage from './pages/BookingPage'
+import BookingPage from './pages/Booking'
 
 export const router = createBrowserRouter([
     {
