@@ -1,15 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import HeroImage from "../../assets/images/hero-image.jpg";
 import Button from '../common/Button';
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <div className="hero">
         <div className="hero-text">
             <h1>Little Lemon</h1>
             <h2>Chicago</h2>
             <p>We are a family owned Mediterranean restaurant, <br /> focused on traditional recipes served with a modern twist.</p>
-            <Button text="Reserve a Table" />
+            <Button text="Reserve a Table" onClick={() => navigate('/booking')} />
         </div>
 
         <div className="hero-image">

@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import AppLogo from "../../assets/images/Logo.svg";
+import { useLocation } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const {pathname} = location;
 
   const handleHamburgerClick = () => {
     setIsMenuOpen((currentOpen) => !currentOpen);
@@ -13,7 +16,7 @@ export default function Header() {
   const handleNavigationClick = () => {
     setIsMenuOpen(false);
   };
-  
+
   return (
     <div className="header">
       <div className="header-logo">
@@ -23,22 +26,26 @@ export default function Header() {
       <nav className="desktop-nav" aria-label="Primary navigation">
         <ul>
           <li>
-            <a href="#hero">Home</a>
+            <a href="/" className={pathname === "/" ? "active" : ""}>
+              Home
+            </a>
           </li>
           <li>
-            <a href="#hero">About</a>
+            <a href="/">About</a>
           </li>
           <li>
-            <a href="#specials">Menu</a>
+            <a href="/">Menu</a>
           </li>
           <li>
-            <a href="#testimonials">Reservations</a>
+            <a href="/">Reservations</a>
           </li>
           <li>
-            <a href="#about">Order Online</a>
+            <a href="/booking" className={pathname === "/booking" ? "active" : ""}>
+              Order Online
+            </a>
           </li>
           <li>
-            <a href="#about">Login</a>
+            <a href="/">Login</a>
           </li>
         </ul>
       </nav>
