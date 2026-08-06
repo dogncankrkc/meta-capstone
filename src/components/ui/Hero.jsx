@@ -16,7 +16,7 @@ export default function Hero() {
         </div>
 
         <div className="hero-image">
-            <img  src={HeroImage} alt="Little Lemon Hero" />
+            <img src={HeroImage} alt="Exterior view of the Little Lemon restaurant" />
         </div>
     </div>
   )

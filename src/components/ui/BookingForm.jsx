@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Button from "../common/Button.jsx";
 import HeroImage from "../../assets/images/hero-image.jpg";
 import { useFormik } from "formik";
@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateForm, resetForm } from "../../features/form/formSlice.js";
 import { addReservation } from "../../features/reservations/reservationsSlice.js";
-import { useEffect } from "react";
 
 function validateBooking(values) {
   const errors = {};
@@ -114,7 +113,9 @@ export default function BookingForm({ availableTimes, dispatch }) {
         {!isSubmitted ? (
           <form className="booking-form" onSubmit={formik.handleSubmit}>
             <div className="booking-form-header">
-              <p className="booking-form-kicker">Step {steps} of 3</p>
+              <p className="booking-form-kicker" aria-live="polite" role="status">
+                Step {steps} of 3
+              </p>
               <h2>Book your experience</h2>
               <div className="booking-step-dots" aria-hidden="true">
                 <span className={steps >= 1 ? "active" : ""} />
@@ -137,10 +138,13 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     className={
                       formik.touched.name && formik.errors.name ? "error" : ""
                     }
+                    aria-invalid={formik.touched.name && Boolean(formik.errors.name)}
+                    aria-describedby={formik.touched.name && formik.errors.name ? "name-error" : undefined}
                     required
+                    placeholder="Enter your name"
                   />
                   {formik.touched.name && formik.errors.name && (
-                    <span className="booking-error">{formik.errors.name}</span>
+                    <span id="name-error" className="booking-error" role="alert">{formik.errors.name}</span>
                   )}
                 </div>
 
@@ -156,10 +160,13 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     className={
                       formik.touched.email && formik.errors.email ? "error" : ""
                     }
+                    aria-invalid={formik.touched.email && Boolean(formik.errors.email)}
+                    aria-describedby={formik.touched.email && formik.errors.email ? "email-error" : undefined}
                     required
+                    placeholder="Enter your email"
                   />
                   {formik.touched.email && formik.errors.email && (
-                    <span className="booking-error">{formik.errors.email}</span>
+                    <span id="email-error" className="booking-error" role="alert">{formik.errors.email}</span>
                   )}
                 </div>
 
@@ -175,10 +182,13 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     className={
                       formik.touched.phone && formik.errors.phone ? "error" : ""
                     }
+                    aria-invalid={formik.touched.phone && Boolean(formik.errors.phone)}
+                    aria-describedby={formik.touched.phone && formik.errors.phone ? "phone-error" : undefined}
                     required
+                    placeholder="Enter your phone number"
                   />
                   {formik.touched.phone && formik.errors.phone && (
-                    <span className="booking-error">{formik.errors.phone}</span>
+                    <span id="phone-error" className="booking-error" role="alert">{formik.errors.phone}</span>
                   )}
                 </div>
               </div>
@@ -204,10 +214,12 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     className={
                       formik.touched.date && formik.errors.date ? "error" : ""
                     }
+                    aria-invalid={formik.touched.date && Boolean(formik.errors.date)}
+                    aria-describedby={formik.touched.date && formik.errors.date ? "date-error" : undefined}
                     required
                   />
                   {formik.touched.date && formik.errors.date && (
-                    <span className="booking-error">{formik.errors.date}</span>
+                    <span id="date-error" className="booking-error" role="alert">{formik.errors.date}</span>
                   )}
                 </div>
 
@@ -223,6 +235,8 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     className={
                       formik.touched.time && formik.errors.time ? "error" : ""
                     }
+                    aria-invalid={formik.touched.time && Boolean(formik.errors.time)}
+                    aria-describedby={formik.touched.time && formik.errors.time ? "time-error" : undefined}
                     required
                   >
                     <option value="">Select a time</option>
@@ -234,7 +248,7 @@ export default function BookingForm({ availableTimes, dispatch }) {
                   </select>
 
                   {formik.touched.time && formik.errors.time && (
-                    <span className="booking-error">{formik.errors.time}</span>
+                    <span id="time-error" className="booking-error" role="alert">{formik.errors.time}</span>
                   )}
                 </div>
 
@@ -252,6 +266,8 @@ export default function BookingForm({ availableTimes, dispatch }) {
                         ? "error"
                         : ""
                     }
+                    aria-invalid={formik.touched.occasion && Boolean(formik.errors.occasion)}
+                    aria-describedby={formik.touched.occasion && formik.errors.occasion ? "occasion-error" : undefined}
                   >
                     <option value="">Select an occasion</option>
                     <option value="birthday">Birthday</option>
@@ -259,7 +275,7 @@ export default function BookingForm({ availableTimes, dispatch }) {
                     <option value="other">Other</option>
                   </select>
                   {formik.touched.occasion && formik.errors.occasion && (
-                    <span className="booking-error">
+                    <span id="occasion-error" className="booking-error" role="alert">
                       {formik.errors.occasion}
                     </span>
                   )}
@@ -285,10 +301,12 @@ export default function BookingForm({ availableTimes, dispatch }) {
                         ? "error"
                         : ""
                     }
+                    aria-invalid={formik.touched.guests && Boolean(formik.errors.guests)}
+                    aria-describedby={formik.touched.guests && formik.errors.guests ? "guests-error" : undefined}
                     required
                   />
                   {formik.touched.guests && formik.errors.guests && (
-                    <span className="booking-error">
+                    <span id="guests-error" className="booking-error" role="alert">
                       {formik.errors.guests}
                     </span>
                   )}
@@ -313,6 +331,7 @@ export default function BookingForm({ availableTimes, dispatch }) {
                 <Button
                   type="button"
                   onClick={() => setSteps((currentStep) => currentStep - 1)}
+                  aria-label="Go to the previous step"
                 >
                   Previous
                 </Button>
@@ -322,6 +341,7 @@ export default function BookingForm({ availableTimes, dispatch }) {
                   type="button"
                   onClick={() => setSteps((currentStep) => currentStep + 1)}
                   disabled={!isStepComplete(formik.values, steps)}
+                  aria-label="Go to the next step"
                 >
                   Next
                 </Button>
@@ -332,9 +352,10 @@ export default function BookingForm({ availableTimes, dispatch }) {
               <Button
                 className="booking-submit"
                 type="submit"
+                role="button"
                 disabled={!isStepComplete(formik.values, steps)}
               >
-                Reserve Table
+                Make Your Reservation
               </Button>
             )}
           </form>

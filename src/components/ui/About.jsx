@@ -17,8 +17,8 @@ export default function About() {
             </p>
         </div>
         <div className="about-images">
-            <img src={restaurant1} alt="Little Lemon Restaurant" />
-            <img src={restaurant2} alt="Little Lemon Restaurant" />
+            <img src={restaurant1} alt="Dining room interior at Little Lemon" />
+            <img src={restaurant2} alt="Chef preparing a Mediterranean dish at Little Lemon" />
         </div>
     </div>
   )

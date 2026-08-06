@@ -675,9 +675,25 @@
 
 .booking-form input:focus,
 .booking-form select:focus,
-.booking-form textarea:focus {
-  border-color: #495e39;
-  box-shadow: 0 0 0 4px rgba(73, 94, 57, 0.12);
+.booking-form textarea:focus,
+.btn:focus-visible,
+.btn-text:focus-visible,
+.desktop-nav ul li a:focus-visible,
+.footer-nav a:focus-visible {
+  outline: 3px solid #f4ce14;
+  outline-offset: 0px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .booking-image-container {
