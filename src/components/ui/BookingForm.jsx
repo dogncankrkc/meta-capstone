@@ -79,9 +79,18 @@ export default function BookingForm({ availableTimes, dispatch }) {
     initialValues,
     validate: validateBooking,
     onSubmit: (values) => {
-      setIsSubmitted(true);
-      formDispatch(addReservation(formik.values));
-      formDispatch(resetForm());
+      const isSuccess =
+        typeof window.submitAPI === "function"
+          ? window.submitAPI(values)
+          : true;
+
+      if (isSuccess) {
+        formDispatch(addReservation(values));
+        formDispatch(resetForm());
+        setIsSubmitted(true);
+      } else {
+        alert("Failed to submit the reservation. Please try again.");
+      }
     },
   });
 
