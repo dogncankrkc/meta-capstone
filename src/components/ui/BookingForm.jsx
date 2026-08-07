@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import Button from "../common/Button.jsx";
 import HeroImage from "../../assets/images/hero-image.jpg";
 import { useFormik } from "formik";
