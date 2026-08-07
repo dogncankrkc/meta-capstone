@@ -1,5 +1,6 @@
 import React from "react";
 import BookingForm from "../components/ui/BookingForm";
+import PageHeader from "../components/common/PageHeader";
 import { useReducer } from "react";
 
 export const initializeTimes = (date) => {
@@ -29,5 +30,14 @@ export default function Booking() {
     initializeTimes,
   );
 
-  return <BookingForm availableTimes={availableTimes} dispatch={dispatch} />;
+  return (
+    <div className="booking-page-shell">
+      <PageHeader
+        eyebrow="Little Lemon"
+        title="Reserve a Table"
+        description="Book a memorable dining experience with a simple and guided reservation flow."
+      />
+      <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+    </div>
+  );
 }
