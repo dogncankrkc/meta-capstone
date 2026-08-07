@@ -3,10 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation } from "react-router-dom";
 import AppLogo from "../../assets/images/Logo.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const handleHamburgerClick = () => {
     setIsMenuOpen((currentOpen) => !currentOpen);
@@ -19,7 +21,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-logo">
-        <img src={AppLogo} alt="Little Lemon Logo" />
+        <img src={AppLogo} alt="Little Lemon Logo" onClick={() => {navigate("/")}} />
       </div>
 
       <nav className="desktop-nav" aria-label="Primary navigation">

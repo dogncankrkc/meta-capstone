@@ -30,6 +30,11 @@
 
 .header-logo {
   flex-shrink: 0;
+  cursor: pointer;
+}
+.header-logo img:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
 }
 
 .header img {
