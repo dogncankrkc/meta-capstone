@@ -5,6 +5,7 @@ import HomePage from './pages/Home'
 import BookingPage from './pages/Booking'
 import ReservationsPage from './pages/Reservations'
 
+// Define the main routes for the restaurant experience.
 export const router = createBrowserRouter([
     {
         path: "/",

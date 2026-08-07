@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function PageHeader({ eyebrow, title, description, align = "left" }) {
+  // Render a reusable section header for page-level content.
   return (
     <section className="page-header-section">
       <div className={`page-header page-header-${align}`}>

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Store the current reservation form values in a single slice.
 const initialState = {
     name: "",
     email: "",

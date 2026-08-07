@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 export default function MainLayout() {
+  // Render the shared layout shell with header, content, and footer.
   return (
     <div className="main-layout">
       <Header />

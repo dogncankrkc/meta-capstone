@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Track saved reservations for the reservations page.
 export const reservationsSlice = createSlice({
   name: "reservations",
   initialState: [], 

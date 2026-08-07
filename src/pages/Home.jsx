@@ -5,6 +5,7 @@ import Testimonials from "../components/ui/Testimonials";
 import About from "../components/ui/About";
 
 export default function Home() {
+  // Compose the landing page sections in order.
   return (
     <>
       <section>

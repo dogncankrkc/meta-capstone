@@ -22,7 +22,7 @@ export default function Reservations() {
         <PageHeader
           eyebrow="Little Lemon"
           title="Your Reservations"
-          description="Review the bookings you made and manage your table plans with ease."
+          description="Review the bookings you made and manage your plans with ease."
         />
       </div>
 
